@@ -11,7 +11,7 @@ fi
 
 echo "(2/3) Compiling..."
 compile_time_start=$(date +%s.%N)
-g++ -o falcon ${cpp_files[@]} -lsqlite3
+g++ -o falcon ${cpp_files[@]} -lsqlite3 -lpthread
 compile_time_end=$(date +%s.%N)
 compile_time=$(echo "$compile_time_end - $compile_time_start" | bc)
 echo "- Compilation took $compile_time seconds"
