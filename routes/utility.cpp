@@ -2,18 +2,20 @@
 #include "routes.h"
 
 using namespace std;
+using namespace crow;
 
-void setupRoutes(crow::SimpleApp& app) {
-    CROW_ROUTE(app, "/").methods(crow::HTTPMethod::GET)([](){
-        std::cout << "GET '/'route called" << endl;
-        return crow::response(200, "Falcon API.");
+void setupUtilitiesRoutes(SimpleApp& app) {
+    // handles the root route
+    CROW_ROUTE(app, "/").methods(HTTPMethod::GET)([](){
+        cout << "GET '/'route called" << endl;
+        return response(200, "Falcon API.");
     });
 
     CROW_ROUTE(app, "/").methods(
-        crow::HTTPMethod::POST,
-        crow::HTTPMethod::PUT,
-        crow::HTTPMethod::DELETE)([]{
-        std::cout << "Unsupported method on '/'" << endl;
-        return crow::response(405, "You can only perform GET requests on the root route.");  // Return status code 405
+        HTTPMethod::POST,
+        HTTPMethod::PUT,
+        HTTPMethod::DELETE)([]{
+        cout << "Unsupported method on '/'" << endl;
+        return response(405, "You can only perform GET requests on the root route.");  // Return status code 405
     });
 };

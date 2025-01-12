@@ -3,6 +3,7 @@
 
 #include "../crow_all.h"
 
-void setupRoutes(crow::SimpleApp& app);
+void setupUtilitiesRoutes(crow::SimpleApp& app);
+void setupAccountsRoutes(crow::SimpleApp& app);
 
 #endif
