@@ -7,11 +7,14 @@ using namespace std;
 int main()
 {
     crow::SimpleApp app; //define your crow application
-    std::cout << "Hello World!" << std::endl;
+    cout << "FALCON\nhttps://github.com/theluqmn/falcon\n----" << endl;
 
-    //define your endpoint at the root directory
     CROW_ROUTE(app, "/")([](){
         return "Hello world";
+    });
+
+    CROW_ROUTE(app, "/hello").methods(crow::HTTPMethod::GET)([](){
+        return "Hello!";
     });
 
     app.loglevel(crow::LogLevel::Warning);
