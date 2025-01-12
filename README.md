@@ -4,6 +4,9 @@
 
 Falcon is a simple bank management system backend written in C++.
 
+>[!NOTE]
+> This project is not memory safe. It is something I will implement in the near future.
+
 ## Features
 
 - Create, manage, and view accounts.
