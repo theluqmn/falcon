@@ -17,6 +17,7 @@ void setupAccountsRoutes(crow::SimpleApp& app) {
         if (open == -1) {
             return crow::response(500, "Error opening account.");
         }
+        
         return crow::response(200, "Account opened with ID: " + to_string(open));
     });
 };
