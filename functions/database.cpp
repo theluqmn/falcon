@@ -18,7 +18,7 @@ sqlite3* initAccountsDB() {
     };
 
     // create the savings table
-    string savings_table = "CREATE TABLE IF NOT EXISTS savings (id INTEGER PRIMARY KEY, name TEXT, )";
+    string savings_table = "CREATE TABLE IF NOT EXISTS savings (id INTEGER PRIMARY KEY, balance FLOAT, name TEXT, password TEXT)";
     res = sqlite3_exec(db, savings_table.c_str(), NULL, NULL, NULL);
     if (res != SQLITE_OK) {
         cerr << "Error creating table: " << sqlite3_errmsg(db) << endl;

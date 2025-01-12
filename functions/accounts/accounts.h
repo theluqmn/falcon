@@ -3,4 +3,10 @@
 
 #include <string>
 
+int openAccount(
+    std::string accountType,
+    std::string accountName,
+    std::string accountPassword
+);
+
 #endif
