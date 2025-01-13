@@ -15,7 +15,7 @@ Falcon is a simple bank management system backend written in C++.
 
 ## How to run
 
-For Linux (Fedora/Debian) users, a pre-compiled executable is available. Simply follow the instructions below:
+For Linux users, a pre-compiled executable is available. Simply follow the instructions below:
 
 1. Go to the [releases](https://github.com/theluqmn/falcon/releases) and download the latest version.
 2. Run the executable file (`./falcon`).
@@ -24,10 +24,15 @@ For Linux (Fedora/Debian) users, a pre-compiled executable is available. Simply 
 
 Use the following steps to compile the project yourself, and modify according to your platform:
 
+>[!NOTE]
+> The `compile.bash` script only works for Unix-based systems (Linux, MacOS).
+>
+> Compilation may take a while. On my i7-10750H, 16GB laptop:
+>
+> ~12s using the package.
+> ~28s if using `crow_all.h`.
+
 1. Clone the repository.
-2. Go to [Crow releases](https://github.com/CrowCpp/Crow/releases/latest), download `crow_all.h` and move the file to the root directory.
+2. Go to [Crow releases](https://github.com/CrowCpp/Crow/releases/latest), download the installer - or `crow_all.h` and move the file to the root directory (you will need to modify some code to use the header file instead of the package).
 3. Ensure you have `g++` and`cpprest-devel` installed (Linux).
 4. Run `bash compile.bash` - this will compile the project and run the executable.
-
->[!NOTE]
-> Compilation may take a while. ~20 seconds on my machine (i7-10750H, 16GB RAM).
