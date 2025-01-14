@@ -8,6 +8,11 @@ std::string getPassword(
     int accountID
 );
 
+int accountExists(
+    std::string accountType,
+    int accountID
+);
+
 int openAccount(
     std::string accountType,
     std::string accountName,

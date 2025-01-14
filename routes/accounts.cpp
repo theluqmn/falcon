@@ -25,6 +25,7 @@ void setupAccountsRoutes(crow::SimpleApp& app) {
             return crow::response(400, "Missing parameters.");
         }
 
+        // open account
         int open = openAccount(type, name, password);
         if (open == -1) {
             return crow::response(500, "Error opening account.");
@@ -46,7 +47,11 @@ void setupAccountsRoutes(crow::SimpleApp& app) {
             return crow::response(400, "Missing account ID.");
         }
 
+        // close account
         int close = closeAccount(type, id);
+        if (close == 0) {
+            return crow::response(404, "Account not found.");
+        }
         if (close == -1) {
             return crow::response(500, "Error closing account.");
         }

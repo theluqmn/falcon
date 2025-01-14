@@ -3,6 +3,7 @@
 #include <string>
 
 #include "../functions.h"
+#include "accounts.h"
 
 using namespace std;
 
@@ -11,6 +12,19 @@ int closeAccount(string accountType, int accountID) {
     sqlite3* db = initAccountsDB();
     if (db == nullptr) {
         return -1;
+    }
+
+    // check if account exists
+    int exists = accountExists(accountType, accountID);
+    if (exists == -1) {
+        cerr << "Error checking if account exists: " << sqlite3_errmsg(db) << endl;
+        sqlite3_close(db);
+        return -1;
+    }
+
+    if (exists == 0) {
+        sqlite3_close(db);
+        return 0;
     }
 
     // delete account from the database
@@ -23,5 +37,5 @@ int closeAccount(string accountType, int accountID) {
     }
 
     sqlite3_close(db);
-    return 0;
+    return 1;
 }
