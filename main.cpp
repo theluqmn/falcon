@@ -15,6 +15,7 @@ int main()
     SimpleApp app;
     setupAccountsRoutes(app);
     setupUtilitiesRoutes(app);
+    setupTransactionsRoutes(app);
 
     app.loglevel(LogLevel::Warning);
 
