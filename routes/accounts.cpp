@@ -18,6 +18,7 @@ void setupAccountsRoutes(crow::SimpleApp& app) {
             return crow::response(400, "Missing parameters.");
         }
 
+        // get balance
         float balance = getBalance(type, stoi(id));
         if (balance == -1) {
             return crow::response(500, "Error getting balance.");
