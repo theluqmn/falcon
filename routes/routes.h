@@ -3,7 +3,9 @@
 
 #include <crow.h>
 
-void setupUtilitiesRoutes(crow::SimpleApp& app);
-void setupAccountsRoutes(crow::SimpleApp& app);
+using namespace crow;
+
+void setupUtilitiesRoutes(SimpleApp& app);
+void setupAccountsRoutes(SimpleApp& app);
 
 #endif

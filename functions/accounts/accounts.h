@@ -3,26 +3,28 @@
 
 #include <string>
 
-std::string getPassword(
-    std::string accountType,
+using namespace std;
+
+string getPassword(
+    string accountType,
     int accountID
 );
 
 int accountExists(
-    std::string accountType,
+    string accountType,
     int accountID
 );
 
 int openAccount(
-    std::string accountType,
-    std::string accountName,
-    std::string accountPassword
+    string accountType,
+    string accountName,
+    string accountPassword
 );
 
 int closeAccount(
-    std::string accountType,
+    string accountType,
     int accountID,
-    std::string accountPassword
+    string accountPassword
 );
 
 #endif
