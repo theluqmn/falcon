@@ -2,6 +2,8 @@
 
 **Designed and developed by** [Luqman](https://theluqmn.github.io/)
 
+[**Documentation**](https://theluqmn.github.io/falcon/)
+
 Falcon is a simple bank management system backend written in C++.
 
 >[!NOTE]
