@@ -5,9 +5,25 @@
 using namespace std;
 
 void setupAccountsRoutes(crow::SimpleApp& app) {
-    CROW_ROUTE(app, "/accounts").methods(crow::HTTPMethod::GET)([](){
+    CROW_ROUTE(app, "/accounts").methods(crow::HTTPMethod::GET)([](const crow::request& req){
         cout << "GET '/accounts' route called" << endl;
-        return crow::response(200, "Get account.");
+
+        // params
+        string type = req.url_params.get("type") ? req.url_params.get("type") : "";
+        string id = req.url_params.get("id") ? req.url_params.get("id") : "";
+
+        // validate
+        if (type.empty()) type = "savings";
+        if (id.empty()) {
+            return crow::response(400, "Missing parameters.");
+        }
+
+        float balance = getBalance(type, stoi(id));
+        if (balance == -1) {
+            return crow::response(500, "Error getting balance.");
+        }
+
+        return crow::response(200, "Account balance: " + to_string(balance));
     });
 
     // create a new account

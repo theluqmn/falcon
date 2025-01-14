@@ -10,6 +10,11 @@ string getPassword(
     int accountID
 );
 
+float getBalance(
+    string accountType,
+    int accountID
+);
+
 int accountExists(
     string accountType,
     int accountID
