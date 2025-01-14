@@ -41,21 +41,25 @@ void setupAccountsRoutes(crow::SimpleApp& app) {
         // params
         string type = req.url_params.get("type") ? req.url_params.get("type") : "savings";
         int id = req.url_params.get("id") ? stoi(req.url_params.get("id")) : -1;
-        
+        string password = req.url_params.get("password") ? req.url_params.get("password") : "";
+
         // validate
         if (id == -1) {
             return crow::response(400, "Missing account ID.");
         }
 
         // close account
-        int close = closeAccount(type, id);
+        int close = closeAccount(type, id, password);
         if (close == 0) {
             return crow::response(404, "Account not found.");
         }
         if (close == -1) {
             return crow::response(500, "Error closing account.");
         }
+        if (close == -2) {
+            return crow::response(401, "Incorrect password.");
+        }
 
-        return crow::response(200, "Delete account.");
+        return crow::response(200, "Deleted account: " + to_string(id));
     });
 };

@@ -21,7 +21,8 @@ int openAccount(
 
 int closeAccount(
     std::string accountType,
-    int accountID
+    int accountID,
+    std::string accountPassword
 );
 
 #endif
