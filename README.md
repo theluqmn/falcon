@@ -29,8 +29,8 @@ Use the following steps to compile the project yourself, and modify according to
 >
 > Compilation may take a while. On my i7-10750H, 16GB laptop:
 >
-> ~12s using the package.
-> ~28s if using `crow_all.h`.
+> - ~12s using the package.
+> - ~28s if using `crow_all.h`.
 
 1. Clone the repository.
 2. Go to [Crow releases](https://github.com/CrowCpp/Crow/releases/latest), download the installer - or `crow_all.h` and move the file to the root directory (you will need to modify some code to use the header file instead of the package).
