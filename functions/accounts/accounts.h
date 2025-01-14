@@ -9,4 +9,9 @@ int openAccount(
     std::string accountPassword
 );
 
+int closeAccount(
+    std::string accountType,
+    int accountID
+);
+
 #endif
