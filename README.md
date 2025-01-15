@@ -27,7 +27,7 @@ For Linux users, a pre-compiled executable is available. Simply follow the instr
 Use the following steps to compile the project yourself, and modify according to your platform:
 
 >[!NOTE]
-> The `compile.bash` script only works for Unix-based systems (Linux, MacOS).
+> The `compile.bash` script only works for **Unix-based** systems (Linux, MacOS).
 >
 > Compilation may take a while. On my i7-10750H, 16GB laptop:
 >
