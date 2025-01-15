@@ -6,11 +6,13 @@
 using namespace std;
 
 void setupTransactionsRoutes(crow::SimpleApp& app) {
+    // get transactions
     CROW_ROUTE(app, "/transactions").methods(crow::HTTPMethod::GET)([](){
         cout << "GET '/transactions' route called" << endl;
         return crow::response(200, "GET '/transactions' route called");
     });
 
+    // create a new transaction
     CROW_ROUTE(app, "/transactions").methods(crow::HTTPMethod::POST)([](const crow::request& req){
         cout << "POST '/transactions' route called" << endl;
 

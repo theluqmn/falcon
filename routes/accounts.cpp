@@ -5,6 +5,7 @@
 using namespace std;
 
 void setupAccountsRoutes(crow::SimpleApp& app) {
+    // get account info
     CROW_ROUTE(app, "/accounts").methods(crow::HTTPMethod::GET)([](const crow::request& req){
         cout << "GET '/accounts' route called" << endl;
 
@@ -14,15 +15,11 @@ void setupAccountsRoutes(crow::SimpleApp& app) {
 
         // validate
         if (type.empty()) type = "savings";
-        if (id.empty()) {
-            return crow::response(400, "Missing parameters.");
-        }
+        if (id.empty()) { return crow::response(400, "Missing parameters."); }
 
         // get balance
         float balance = getBalance(type, stoi(id));
-        if (balance == -1) {
-            return crow::response(500, "Error getting balance.");
-        }
+        if (balance == -1) { return crow::response(500, "Error getting balance."); }
 
         return crow::response(200, "Account balance: " + to_string(balance));
     });
@@ -38,15 +35,11 @@ void setupAccountsRoutes(crow::SimpleApp& app) {
         
         // validate
         if (type.empty()) type = "savings";
-        if (name.empty() || password.empty()) {
-            return crow::response(400, "Missing parameters.");
-        }
+        if (name.empty() || password.empty()) { return crow::response(400, "Missing parameters."); }
 
         // open account
         int open = openAccount(type, name, password);
-        if (open == -1) {
-            return crow::response(500, "Error opening account.");
-        }
+        if (open == -1) { return crow::response(500, "Error opening account."); }
 
         return crow::response(200, "Account opened with ID: " + to_string(open));
     });
@@ -61,21 +54,13 @@ void setupAccountsRoutes(crow::SimpleApp& app) {
         string password = req.url_params.get("password") ? req.url_params.get("password") : "";
 
         // validate
-        if (id == -1) {
-            return crow::response(400, "Missing account ID.");
-        }
+        if (id == -1) { return crow::response(400, "Missing account ID."); }
 
         // close account
         int close = closeAccount(type, id, password);
-        if (close == 0) {
-            return crow::response(404, "Account not found.");
-        }
-        if (close == -1) {
-            return crow::response(500, "Error closing account.");
-        }
-        if (close == -2) {
-            return crow::response(401, "Incorrect password.");
-        }
+        if (close == 0) { return crow::response(404, "Account not found."); }
+        if (close == -1) { return crow::response(500, "Error closing account."); }
+        if (close == -2) { return crow::response(401, "Incorrect password."); }
 
         return crow::response(200, "Deleted account: " + to_string(id));
     });
