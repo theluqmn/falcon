@@ -8,7 +8,7 @@ void setupUtilitiesRoutes(SimpleApp& app) {
     // handles the root route
     CROW_ROUTE(app, "/").methods(HTTPMethod::GET)([](){
         cout << "GET '/'route called" << endl;
-        return response(200, "Falcon API.");
+        return response(200, "You are requesting the root route of the Falcon API.");
     });
 
     CROW_ROUTE(app, "/").methods(

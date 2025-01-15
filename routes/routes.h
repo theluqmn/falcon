@@ -7,6 +7,6 @@ using namespace crow;
 
 void setupUtilitiesRoutes(SimpleApp& app);
 void setupAccountsRoutes(SimpleApp& app);
-VOID setupTransactionsRoutes(SimpleApp& app);
+void setupTransactionsRoutes(SimpleApp& app);
 
 #endif
