@@ -15,9 +15,7 @@ int openAccount(string accountType, string accountName, string accountPassword) 
 
     // open the database
     sqlite3* db = initAccountsDB();
-    if (db == nullptr) {
-        return -1;
-    }
+    if (db == nullptr) { return -1; }
 
     // generate account id
     int accountID = rand() % 90000000 + 10000000;
