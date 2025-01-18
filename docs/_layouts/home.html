@@ -3,12 +3,12 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Home - The Revelations</title>
+        <title>Home - Falcon</title>
         <link rel="icon" href="{{ site.baseurl }}/assets/icon.png" type="image/x-icon" />
 
         <!-- Open Graph -->
-        <meta property="og:title" content="Home - The Revelations" />
-        <meta property="og:description" content="A weekly newsletter that aims to provide a comprehensive and concise overview of various topics for the aspiring entrepreneur, leaders, and curious minds." />
+        <meta property="og:title" content="Falcon" />
+        <meta property="og:description" content="A simple bank management system written in C++." />
 
         <!-- Tailwind CSS -->
         <script src="https://cdn.tailwindcss.com"></script>
@@ -29,7 +29,67 @@
         </style>
     </head>
 
-    <body class="bg-black">
-        
+    <body class="w-full md:w-7/12 md:mx-auto bg-black">
+        <!-- Header -->
+        <header class="p-4 flex flex-row bg-[rgb(10,10,10)] justify-between sticky">
+            <h1 class="text-2xl font-bold text-white">
+                Falcon
+            </h1>
+
+            <div class="flex flex-row gap-4">
+                <a href="{{ base.url }}/docs">
+                    <button class="p-2 font-semibold bg-[rgb(244,222,132)] hover:brightness-110 duration-300 text-black">
+                        Try Online
+                    </button>
+                </a>
+
+                <a href="{{ base.url }}/docs">
+                    <button class="p-2 font-semibold bg-[rgb(244,222,132)] hover:brightness-110 duration-300 text-black">
+                        Docs
+                    </button>
+                </a>
+
+                <a href="https://github.com/theluqmn/falcon">
+                    <button class="p-2 font-semibold bg-[rgb(244,222,132)] hover:brightness-110 duration-300 text-black">
+                        GitHub
+                    </button>
+                </a>
+            </div>
+        </header>
+
+        <!-- Content -->
+        <div class="p-4 flex flex-col gap-32">
+            <div class="pt-32 flex flex-col gap-4">
+                <h1 class="text-5xl font-bold text-[rgb(244,222,132)]">
+                    A <u>Performant</u> and <u>Simple</u> Banking Backend
+                </h1>
+
+                <p class="text-2xl text-[rgb(220,220,220)]">
+                    Falcon is a simple bank management system that works via a REST API.
+                </p>
+
+                <div class="flex flex-row gap-4">
+                    <a href="{{ base.url }}/docs">
+                        <button class="p-4 font-semibold bg-[rgb(244,222,132)] hover:brightness-110 hover:scale-105  duration-300 text-2xl text-black">
+                            Try Now
+                        </button>
+                    </a>
+
+                    <a href="{{ base.url }}/docs">
+                        <button class="p-4 font-semibold bg-[rgb(220,220,220)] hover:brightness-110 hover:scale-105  duration-300 text-2xl text-black">
+                            Install
+                        </button>
+                    </a>
+
+                    <a href="{{ base.url }}/docs">
+                        <button class="p-4 font-semibold bg-[rgb(220,220,220)] hover:brightness-110 hover:scale-105 duration-300 text-2xl text-black">
+                            Docs
+                        </button>
+                    </a>
+                </div>
+            </div>
+
+            <hr class="border-t-4 border-[rgb(10,10,10)]">
+        </div>
     </body>    
 </html>
