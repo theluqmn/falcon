@@ -2,6 +2,7 @@
 #include "routes.h"
 
 #include "../functions/accounts/accounts.h"
+#include "../functions/transactions/transactions.h"
 
 using namespace std;
 
@@ -40,6 +41,9 @@ void setupTransactionsRoutes(crow::SimpleApp& app) {
         
         string validatePassword = getPassword(senderType, senderID);
         if (validatePassword != password) { return crow::response(400, "Invalid sender password."); }
+
+        // perform transaction
+        newTransaction(senderType, senderID, receiverType, receiverID, amount, description);
 
         return crow::response(200, "Transaction from " + to_string(senderID) + " to " + to_string(receiverID) + " successful.");
     });

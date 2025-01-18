@@ -43,7 +43,7 @@ sqlite3* initTransactionsDB() {
     }
 
     // create the transactions table
-    string transactions_table = "CREATE TABLE IF NOT EXISTS transactions (id INTEGER PRIMARY KEY, account_id INTEGER, amount FLOAT, description TEXT, date TEXT, FOREIGN KEY(account_id) REFERENCES savings(id))";
+    string transactions_table = "CREATE TABLE IF NOT EXISTS transactions (senderType TEXT, senderID INTEGER, receiverType TEXT, receiverID INTEGER, amount FLOAT, description TEXT, timestamp DATETIME DEFAULT CURRENT_TIMESTAMP)";
     res = sqlite3_exec(db, transactions_table.c_str(), NULL, NULL, NULL);
     if (res != SQLITE_OK) {
         cerr << "Error creating table: " << sqlite3_errmsg(db) << endl;

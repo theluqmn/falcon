@@ -21,7 +21,7 @@ int openAccount(string accountType, string accountName, string accountPassword) 
     int accountID = rand() % 90000000 + 10000000;
 
     // insert account into the database
-    string sql = "INSERT INTO " + accountType + " (id, balance, name, password) VALUES (" + to_string(accountID) + ", 0.00, '" + accountName + "', '" + accountPassword + "')";
+    string sql = "INSERT INTO " + accountType + " (id, balance, name, password) VALUES (" + to_string(accountID) + ", 10.00, '" + accountName + "', '" + accountPassword + "')";
     int res = sqlite3_exec(db, sql.c_str(), NULL, NULL, NULL);
     if (res != SQLITE_OK) {
         cerr << "Error inserting account: " << sqlite3_errmsg(db) << endl;

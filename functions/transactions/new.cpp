@@ -37,7 +37,7 @@ int newTransaction(string senderType, int senderID, string receiverType, int rec
     }
 
     // insert transaction into the database
-    sql = "INSERT INTO transactions (account_id, amount, description) VALUES (" + to_string(senderID) + ", " + to_string(amount) + ", '" + description + "')";
+    sql = "INSERT INTO transactions (senderType, senderID, receiverType, receiverID, amount, description) VALUES ('" + senderType + "', " + to_string(senderID) + ", '" + receiverType + "', " + to_string(receiverID) + ", " + to_string(amount) + ", '" + description + "')";
     res = sqlite3_exec(transactionsDB, sql.c_str(), NULL, NULL, NULL);
     if (res != SQLITE_OK) {
         cerr << "Error inserting transaction: " << sqlite3_errmsg(transactionsDB) << endl;
