@@ -41,6 +41,6 @@ void setupTransactionsRoutes(crow::SimpleApp& app) {
         string validatePassword = getPassword(senderType, senderID);
         if (validatePassword != password) { return crow::response(400, "Invalid sender password."); }
 
-        return crow::response(200, "POST '/transactions' route called");
+        return crow::response(200, "Transaction from " + to_string(senderID) + " to " + to_string(receiverID) + " successful.");
     });
 }
