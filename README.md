@@ -4,7 +4,9 @@
 
 [**Website**](https://theluqmn.github.io/falcon/)
 
-Falcon is a simple bank management system backend written in C++.
+Falcon is a simple bank management system backend written in C++. I am also working on [Moose](https://github.com/theluqmn/moose) which is a more advanced bank management system backend project which I wrote in Rust - but is not planned for High Seas 2024/2025.
+
+This is my first project in C++.
 
 >[!WARNING]
 > This project is not memory safe. It is something I will implement in the near future.
